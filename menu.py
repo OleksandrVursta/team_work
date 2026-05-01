@@ -51,3 +51,25 @@ def main():
 
 
 main()
+
+def total_price():
+    total=sum(d["price"] for d in menu)
+    print(total)
+
+def category_price():
+    cat=input("Категорія: ")
+
+    total=sum(
+        d["price"]
+        for d in menu
+        if d["category"]==cat
+    )
+
+    print(total)
+
+def sort_price_asc():
+    menu.sort(key=lambda x:x["price"])
+
+
+def sort_price_desc():
+    menu.sort(key=lambda x:x["price"],reverse=True)
