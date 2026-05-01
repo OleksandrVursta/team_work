@@ -13,13 +13,14 @@ menu = [
 
 
 def show_menu():
-    print("\n===== MENU =====")
+    print("\n==============================")
+
     for dish in menu:
-        print(
-            f"{dish['name']} | "
-            f"{dish['price']} грн | "
-            f"{dish['description']}"
-        )
+        print(f"Назва: {dish['name']}")
+        print(f"Категорія: {dish['category']}")
+        print(f"Ціна: {dish['price']} грн")
+        print(f"Опис: {dish['description']}")
+        print("-------------------------")
 
 
 def main():
@@ -32,8 +33,8 @@ def main():
 
         choice = input("-> ")
 
-        if choice == "1":
-            pass
+        if choice=="1":
+            add_dish()
 
         elif choice == "2":
             pass
@@ -51,6 +52,27 @@ def main():
 
 
 main()
+
+
+def add_dish():
+    name = input("Назва: ")
+    category = input("Категорія: ")
+    description = input("Опис: ")
+
+    price = float(input("Ціна: "))
+
+    if price < 0:
+        print("Ціна не може бути від'ємною")
+        return
+
+    menu.append({
+        "name": name,
+        "category": category,
+        "price": price,
+        "description": description
+    })
+
+    print("Додано")
 
 def edit_dish():
     name=input("Яку страву редагувати: ")
