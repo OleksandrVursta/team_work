@@ -53,6 +53,7 @@ def main():
 
 main()
 
+
 def add_dish():
     name = input("Назва: ")
     category = input("Категорія: ")
@@ -72,3 +73,24 @@ def add_dish():
     })
 
     print("Додано")
+
+def edit_dish():
+    name=input("Яку страву редагувати: ")
+
+    for dish in menu:
+        if dish["name"]==name:
+            dish["price"]=float(input("Нова ціна: "))
+            dish["description"]=input("Новий опис: ")
+            dish["category"]=input("Нова категорія: ")
+            print("Оновлено")
+            return
+
+    print("Страву не знайдено")
+
+def show_by_category():
+    category=input("Категорія: ")
+
+    for dish in menu:
+        if dish["category"]==category:
+            print(dish["name"])
+
