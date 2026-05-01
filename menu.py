@@ -51,3 +51,19 @@ def main():
 
 
 main()
+
+def delete_by_name():
+    name=input("Назва: ")
+
+    global menu
+    menu=[dish for dish in menu if dish["name"]!=name]
+
+    print("Видалено")
+def delete_by_category():
+    category=input("Категорія: ")
+
+    global menu
+    menu=[dish for dish in menu if dish["category"]!=category]
+
+def count_dishes():
+    print("Кількість:",len(menu))
